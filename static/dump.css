@@ -1,0 +1,62 @@
+body {
+  font-family: Lucida Grande;
+  font-size: 12px;
+}
+.thread0 .header {
+  background-color: #FFE0E0;
+}
+.thread1 .header {
+  background-color: #FFFAE0;
+}
+.thread2 .header {
+  background-color: #E0FFE0;
+}
+.thread3 .header {
+  background-color: #EAE3FF;
+}
+.thread4 .header {
+  background-color: #DCFCFF;
+}
+.thread5 .header {
+  background-color: #FFECDC;
+}
+.thread6 .header {
+  background-color: #FFDCF9;
+}
+.transition:not(.relevant) {
+  display: none;
+}
+.annotation .header {
+  width: 30%;
+  float: left;
+}
+.transition .header {
+  margin-left: 1%;
+  width: 29%;
+  float: left;
+}
+.trace {
+  width: 68%;
+  float: left;
+}
+.transition, .annotation {
+  overflow: hidden;
+  width: 100%;
+  margin: 3px;
+}
+.header {
+  padding: 1px;
+}
+.trace {
+  margin-left: 10px;
+}
+.selected {
+  text-decoration: underline;
+}
+.remembered {
+  font-weight: bold;
+}
+.code {
+  font-family: Menlo;
+  margin-left: 10px;
+}

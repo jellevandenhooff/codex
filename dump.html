@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <title>Dump</title>
+  <link href="static/dump.css" rel="stylesheet" type="text/css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+  {% for transition in transitions %}
+  {% if transition.type == 'transition' %}
+    <div class="transition thread{{transition.thread}} {% if transition.relevant %}relevant{% endif %}">
+      <div class="header">{{ transition.step }}: {{ transition.description|safe }}</div>
+      <div class="trace">
+      {% for loc in transition.trace[:1] %}
+      {{ loc.function }}:<br><div class="code">{{ loc.contents }}</div>
+      {% endfor %}
+      </div>
+    </div>
+  {% else %}
+    <div class="annotation thread{{transition.thread}} relevant">
+      <div class="header">{{ transition.description|safe }}</div>
+    </div>
+  {% endif %}
+  {% endfor %}
+  <script>
+    $('.addr').mouseenter(function() {
+      var css_class = '.p' + $(this).text();
+      $(css_class).addClass('selected');
+    });
+    $('.addr').mouseleave(function() {
+      var css_class = '.p' + $(this).text();
+      $(css_class).removeClass('selected');
+    });
+    $('.addr').click(function() {
+      var css_class = '.p' + $(this).text();
+      $(css_class).toggleClass('remembered');
+    });
+  </script>
+</body>
+</html>
